@@ -6,9 +6,20 @@ module.exports = {
   entry: './src/main.js',
   module: {
     rules: [
-      { test: /\.js/, use: 'babel-loader'},
-      { test: /\.vue/, use: 'vue-loader'},
-      { test: /\.css/, use: ['vue-style-loader', 'css-loader']},
+      { 
+        test: /\.js/,
+        exclude: /node_modules/,
+        use: ['babel-loader', 'eslint-loader']
+      },
+      { 
+        test: /\.vue/,
+        exclude: /node_modules/,
+        use: ['vue-loader','eslint-loader']
+      },
+      {
+        test: /\.css/, 
+        use: ['vue-style-loader', 'css-loader']
+      },
     ]
   },
   devServer: {
